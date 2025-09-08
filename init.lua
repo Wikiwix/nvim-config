@@ -2,12 +2,16 @@ vim.o.shiftwidth = 0 -- Use the tabstop value
 vim.o.tabstop = 4
 vim.o.showbreak = '↳' .. string.rep(' ', vim.o.tabstop - 1)
 
-vim.o.spell = true -- TODO
-vim.cmd [[setlocal spell spelllang=en_gb,de_20]] -- TODO
+vim.o.spell = true
+vim.opt.spelllang = { 'en_gb', 'de_20' }
 
 -- https://stackoverflow.com/a/21000307/16398464
 vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+
+vim.o.background = 'light'
+vim.cmd 'colorscheme minisummer'
+
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -71,9 +75,8 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
---  TODO listchars
 vim.opt.listchars = { -- TODO: improve
-  tab = '» ',
+  tab = '⭲ ',
   trail = '·',
   nbsp = '␣',
 }
@@ -120,10 +123,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+vim.keymap.set('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
+vim.keymap.set('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
+vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
+vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
