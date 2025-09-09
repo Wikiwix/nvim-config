@@ -821,7 +821,14 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
+  {
+    'kylechui/nvim-surround',
+    version = '^3.0.0',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {}
+    end,
+  },
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
     config = function()
@@ -832,8 +839,6 @@ require('lazy').setup({
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
-
-      require('mini.surround').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
