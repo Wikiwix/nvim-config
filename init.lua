@@ -821,17 +821,6 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-  { 'tpope/vim-fugitive' },
-  {
-    'notjedi/nvim-rooter.lua',
-    config = function()
-      require('nvim-rooter').setup()
-    end,
-  },
-  {
-    'edte/normal-colon.nvim',
-    opts = {},
-  },
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
     config = function()
